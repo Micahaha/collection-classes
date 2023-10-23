@@ -21,6 +21,10 @@ def TestInit():
     # construct a node with data equal to O and link equal to head
     # and assign its reference to a head
     head = node('J', head) # J -> O -> B -> S
+    head = node(1, head) # 1-> J -> O -> B -> S
+    head = node(1.5, head) # 1.5 -> 1 -> J -> O -> B -> S
+    head = node([1,2], head) # [1,2] ->1.5 -> 1 -> J -> O -> B -> S
+    head = node(('A','B'), head) # ('A', 'B') ->[1,2] ->1.5 -> 1 -> J -> O -> B -> S
 
     print()
 
