@@ -52,3 +52,13 @@ class node:
         """        
 
         self.__link = link
+
+    def addNodeAfter(self, element):
+        """Adds a new node containing a specified element value 
+        at a selectected position in the calling node.
+
+        Args:
+            element (_type_): specified element value
+        """        
+        
+        self.__link = node(element, self.__link)
