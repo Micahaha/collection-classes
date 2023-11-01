@@ -3,9 +3,67 @@ from node.node import *
 def main():
     # TestInit()
     # testGettersAndSetters()
-    testAddNodeAfter()
-    testRemoveNodeAfter()
-    review()
+    # testAddNodeAfter()
+    # testRemoveNodeAfter()
+    # review()
+    # testListLength()
+    testListSearch()
+
+
+def testListSearch():
+    print("Testing List Search")
+
+    # construct a node with data equal to S and link equal to None
+    # and assign its reference to a head
+    head = node('S', None) # S
+
+    # construct a node with data equal to B and link equal to head
+    # and assign its reference to a head
+    head = node('B', head) # B -> S
+
+    # construct a node with data equal to O and link equal to head
+    # and assign its reference to a head
+    head = node('O', head) # O -> B -> S
+
+   # construct a node with data equal to S and link equal to None
+   # and assign its reference to a head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("Length of head is: ", node.listLength(head))
+
+    print("Head contains:", node.listSearch(head, 'J').getData())
+    print("Head contains:", node.listSearch(head, 'O').getData())
+    print("Head contains:", node.listSearch(head, 'B').getData())
+    print("Head contains:", node.listSearch(head, 'S').getData())
+
+    if(node.listSearch(head, 'Z') != None):
+        print("Head contains:", node.listSearch(head, 'Z').getData())
+    else:
+        print("Head doesn't contain Z.")
+
+
+def testListLength():
+    print("Testing List Length")
+
+    # construct a node with data equal to S and link equal to None
+    # and assign its reference to a head
+    head = node('S', None) # S
+
+    # construct a node with data equal to B and link equal to head
+    # and assign its reference to a head
+    head = node('B', head) # B -> S
+
+    # construct a node with data equal to O and link equal to head
+    # and assign its reference to a head
+    head = node('O', head) # O -> B -> S
+
+   # construct a node with data equal to S and link equal to None
+    # and assign its reference to a head
+    head = node('J', head) # J -> O -> B -> S
+
+    print("Length of head is: ", node.listLength(head))
+
+
 
 
 def testRemoveNodeAfter():
