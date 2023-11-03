@@ -139,3 +139,97 @@ class node:
             node: reference to node at specified position if specified position 
             is found, else None
         """         
+        cursor = head # used to step through the specified node
+        i = 1
+
+        try:
+            if (position < 1):
+                raise ValueError("Position may not be less than 1.")
+        except ValueError as e:
+            # display error and exit
+            exit(e)
+        else:
+            # move cursor forward the correct number of nodes
+            # as long as i is less than position and cursor isn't
+            # equal to None
+            # if cursor becomes none, that mens the specified position 
+            # was greater then the number of nodes in the specified nodes.
+            while ((i < position) and (cursor != None)):
+                # move the cursor to the next node
+                cursor = cursor.getLink()
+                i += 1
+
+
+            # return cursor
+            return cursor
+    
+    @staticmethod
+    def listCopy(source):
+        """Make a copy of the specified node.
+
+        Args:
+            source (node): specified data node
+
+
+        Returns:
+            node: reference to the head node in the copy 
+        """        
+        # if specified source node is None, return None
+        if (source is None):
+            return None
+        
+        # make copy head refer to a node that contains the same 
+        # data value in the specified source node to be copied
+        copyhead = node(source.getData(), None) 
+        # make copy tail refer to the same node as copy head
+        copytail= copyhead
+
+        # keep looping through the specified source node to be copied
+        # until we reach the node that has the link of None
+        while(source.getLink() != None):
+        # advance to the next node in the specified source node to be copied
+            source = source.getLink()
+            # get the data value in the specified source node and add it to the 
+            # end of copy tail
+            copytail.addNodeAfter(source.getData())
+            # advance copy [tail to the next node
+            copytail = copytail.getLink()
+
+        # return copy head
+        return copyhead     
+
+    @staticmethod
+    def listCopyWithHead(source):
+        """Makes a copy of a specified node
+
+        Args:
+            source (node): specified node to be copied
+
+
+        Returns:
+           [node]: reference to head and tail of a copy  
+        """ 
+
+        # if specified source node is None, return None
+        if (source is None):
+            return None
+        
+        # make copy head refer to a node that contains the same 
+        # data value in the specified source node to be copied
+        copyhead = node(source.getData(), None) 
+        # make copy tail refer to the same node as copy head
+        copytail= copyhead
+
+        # keep looping through the specified source node to be copied
+        # until we reach the node that has the link of None
+        while(source.getLink() != None):
+        # advance to the next node in the specified source node to be copied
+            source = source.getLink()
+            # get the data value in the specified source node and add it to the 
+            # end of copy tail
+            copytail.addNodeAfter(source.getData())
+            # advance copy [tail to the next node
+            copytail = copytail.getLink()
+
+        # return copy head and copytail
+        return [copyhead, copytail]
