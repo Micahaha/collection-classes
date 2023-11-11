@@ -1,4 +1,4 @@
-from node import node
+from node.node import node
 
 def main():
 
