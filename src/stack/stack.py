@@ -54,7 +54,7 @@ class stack:
         # and concatening them into the data
 
         while(i <= self.__manyNodes):
-            data = data + (str(cursor.getData()) + ' ')
+            data = data + (str(cursor.getData()) + ',')
             cursor = cursor.getLink()
             i += 1
 
@@ -67,7 +67,7 @@ class stack:
         Returns:
             str: string representation of the calling stack
         """        
-        return f"[  {self.getData()} ]"
+        return f"[ {self.getData()} ]"
     
 
     def push(self, element):
@@ -98,3 +98,56 @@ class stack:
             Boolean: True if the calling stack is empty, else False
         """        
         return self.size() == 0 
+    
+    def pop(self):
+        """Removes and returns the element at the top of the calling stack
+
+        Raises:
+            ValueError: indicates if the calling stack is empty
+
+        
+        Returns:
+            _type_: element at the top of the calling stack 
+        """        
+
+        try:
+            # if the calling stack is empty, raise error
+            if(self.isEmpty()):
+                raise ValueError("Stack is empty.")
+        except ValueError as e:
+            # display value error and exit
+            exit(e)
+        else:
+        # get data in node at the head (top) of the calling stack
+            top = self.__head.getData()
+        
+            # advance head instance variable to next node
+            self.__head = self.__head.getLink()
+
+            # recompute the numbr of nodes in the calling stack
+            self.__manyNodes = node.listLength(self.__head)
+        
+            # return data in node at the head (top) of the calling stack
+            return top
+    
+    def peek(self):
+        """Returns the element at the head (top) of the calling stack, without removing it.
+
+        Raises:
+            ValueError: indicates if the calling stack is empty
+
+        
+        Returns:
+            _type_: element at the top of the calling stack 
+        """        
+
+        try:
+            # if the calling stack is empty, raise error
+            if(self.isEmpty()):
+                raise ValueError("Stack is empty.")
+        except ValueError as e:
+            # display value error and exit
+            exit(e)
+        else:
+            # get data in node at the head (top) of the calling stack
+            return self.__head.getData()
