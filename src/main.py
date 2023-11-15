@@ -1,6 +1,7 @@
 from node.node import *
 from stack.stack import *
 from stack.balancedparens import *
+from stack.calculator import *
 def main():
     # TestInit()
     # testGettersAndSetters()
@@ -20,10 +21,14 @@ def main():
     # testPop()
     # testIsEmpty()
     # testPeek()
-    print("Parenthesis are balanced?", balancedParens.isBalanced("{X+Y")) # FALSE
-    print("Parenthesis are balanced?", balancedParens.isBalanced("{X+Y)")) # FALSE
-    print("Parenthesis are balanced?", balancedParens.isBalanced("({X+Y}*Z)")) # TRUE
-    print("Parenthesis are balanced?", balancedParens.isBalanced("[A+B]*({X+Y})*Z")) # TRUE
+    # print("Parenthesis are balanced?", balancedParens.isBalanced("{X+Y")) # FALSE
+    # print("Parenthesis are balanced?", balancedParens.isBalanced("{X+Y)")) # FALSE
+    # print("Parenthesis are balanced?", balancedParens.isBalanced("({X+Y}*Z)")) # TRUE
+    # print("Parenthesis are balanced?", balancedParens.isBalanced("[A+B]*({X+Y})*Z")) # TRUE
+    print("(((6+9)/3)*(6-4)) = ", calculator.evaluate("(((6+9)/3)*(6-4))"))
+    print("(6+(3*(6-4))) = ", calculator.evaluate("(6+(3*(6-4)))"))
+    print("((5+2)-(3*(6/9))) = ", calculator.evaluate("((5+2)-(3*(6/9)))"))
+    print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
 
 def testPeek():
     print("Testing Peek Method in Stack Class")
