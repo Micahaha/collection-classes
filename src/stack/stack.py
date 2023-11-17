@@ -151,3 +151,6 @@ class stack:
         else:
             # get data in node at the head (top) of the calling stack
             return self.__head.getData()
+        
+
+ 
