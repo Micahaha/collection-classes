@@ -239,7 +239,7 @@ class node:
             to the specified data value.
 
             Args:
-                position (int): specified posotion
+                position (int): specified position
                 data: specified data value
 
             Raises:

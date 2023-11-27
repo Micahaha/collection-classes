@@ -2,7 +2,18 @@ from node.node import *
 from stack.stack import *
 from stack.balancedparens import *
 from stack.calculator import *
+from queues.queue import *
+from queues.palindrome import *
+
 def main():
+
+    # testEnqueue()
+    # testQueueIsEmpty()
+    # testDequeue()
+    # testQueuePeek()
+    testIsPalindrome()
+
+
     # TestInit()
     # testGettersAndSetters()
     # testAddNodeAfter()
@@ -25,10 +36,22 @@ def main():
     # print("Parenthesis are balanced?", balancedParens.isBalanced("{X+Y)")) # FALSE
     # print("Parenthesis are balanced?", balancedParens.isBalanced("({X+Y}*Z)")) # TRUE
     # print("Parenthesis are balanced?", balancedParens.isBalanced("[A+B]*({X+Y})*Z")) # TRUE
-    print("(((6+9)/3)*(6-4)) = ", calculator.evaluate("(((6+9)/3)*(6-4))"))
-    print("(6+(3*(6-4))) = ", calculator.evaluate("(6+(3*(6-4)))"))
-    print("((5+2)-(3*(6/9))) = ", calculator.evaluate("((5+2)-(3*(6/9)))"))
-    print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
+    # print("(((6+9)/3)*(6-4)) = ", calculator.evaluate("(((6+9)/3)*(6-4))"))
+    # print("(6+(3*(6-4))) = ", calculator.evaluate("(6+(3*(6-4)))"))
+    # print("((5+2)-(3*(6/9))) = ", calculator.evaluate("((5+2)-(3*(6/9)))"))
+    # print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
+
+
+def testIsPalindrome():
+    exp = input("Please enter an expression:")
+
+    if(palindrome.isPalindrome(exp)):
+        print("Your expression is a palindrome.")
+    else:
+        print("Your expression is not a palindrome.")
+
+
+
 
 def testPeek():
     print("Testing Peek Method in Stack Class")
@@ -102,7 +125,7 @@ def testPop():
     print("Just popped:", s.pop()) # S
 
 
-def testPush():
+# def testPush():
     print("Testing Push Method in stack Class")
 
     s = stack()
@@ -205,7 +228,7 @@ def testListCopy():
 
 
 
-def testListPosition():
+# def testListPosition():
     print("Testing List Position")
 
     # construct a node with data equal to S and link equal to None
@@ -235,7 +258,7 @@ def testListPosition():
         print('There is no Fifth node')        
 
 
-def testListSearch():
+# def testListSearch():
     print("Testing List Search")
 
     # construct a node with data equal to S and link equal to None
@@ -267,7 +290,7 @@ def testListSearch():
         print("Head doesn't contain Z.")
 
 
-def testListLength():
+# def testListLength():
     print("Testing List Length")
 
     # construct a node with data equal to S and link equal to None
@@ -291,7 +314,7 @@ def testListLength():
 
 
 
-def testRemoveNodeAfter():
+# def testRemoveNodeAfter():
     print('Testing Remove Node After')
 
     # construct a node with data equal to S and link equal to None
@@ -330,7 +353,7 @@ def testRemoveNodeAfter():
 
 
 
-def review():
+# def review():
 
     # Question 1: 
     print('Review')
@@ -391,7 +414,7 @@ def review():
 
 
 
-def testAddNodeAfter():
+# def testAddNodeAfter():
     print('Testing Add Node After')
     head = node('J', None) # J
 
@@ -458,7 +481,7 @@ def testAddNodeAfter():
     print("The selection node contains data:", selection.getData())
     print("The tail node contains data:", tail.getData())
 
-def testGettersAndSetters():
+# def testGettersAndSetters():
     print('Testing Getters and Setters')
 
     # construct a node with data equal to S and link equal to None
@@ -500,7 +523,7 @@ def testGettersAndSetters():
     # set head's link to a new node
     head.setLink(node('O', None)) # S -> O
 
-def TestInit():
+# def TestInit():
     print("Testing Node Init")
 
     # construct a node with data equal to S and link equal to None
@@ -528,6 +551,94 @@ def TestInit():
     list = ['a','b','c','d']
     list.pop()
     print()
+
+
+def testEnqueue():
+
+
+    print("Testing Enqueue")
+
+    my_queue = queue()
+    my_queue.enqueue('J')
+    my_queue.enqueue('O')
+    my_queue.enqueue('B')
+    my_queue.enqueue('S')
+
+  
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+def testQueueIsEmpty():
+    print('\n')
+    print("Testing IsEmpty Method in Queue Class")
+
+    my_queue = queue()
+    my_queue.enqueue('J')
+
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+    my_queue.enqueue('O')
+
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+    my_queue.enqueue('B')    
+  
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+    my_queue.enqueue('S')
+
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+    print('\n')
+    while(not my_queue.isEmpty()):
+        print("Just dequeued:", my_queue.dequeue())
+
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+
+def testDequeue():
+    print('\n')
+    print("Testing Dequeue Method in Queue Class")
+
+
+    my_queue = queue()
+    my_queue.enqueue('J')
+    my_queue.enqueue('O')
+    my_queue.enqueue('B')
+    my_queue.enqueue('S')
+
+    
+    print("Queue size is", my_queue.size()) # 4
+    print('Queue Contains:', my_queue) # [J O B S]
+    print("Just Dequeued:", my_queue.dequeue()) # J
+
+    print("Queue size is", my_queue.size()) # 3
+    print('Queue Contains:', my_queue) # [O B S]
+    print("Just Dequeued:", my_queue.dequeue()) # O
+
+    print("Queue size is", my_queue.size()) # 2
+    print('Queue Contains:', my_queue) # [B S]
+    print("Just Dequeued:", my_queue.dequeue()) # B
+
+    print("Queue size is", my_queue.size()) # 1
+    print('Queue Contains:', my_queue) # [S]
+    print("Just Dequeued:", my_queue.dequeue()) # S
+
+def testQueuePeek():
+    print('\n')
+    my_queue = queue()
+    my_queue.enqueue('J')
+    my_queue.enqueue('O')
+    my_queue.enqueue('B')
+    my_queue.enqueue('S')
+
+    print(f'Head at front of Queue: {my_queue.peek()}')
+
+
 
 
 
