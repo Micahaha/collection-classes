@@ -3,7 +3,7 @@ from stack.stack import *
 from stack.balancedparens import *
 from stack.calculator import *
 from queues.queue import *
-from queues.palindrome import *
+from queues.palindrome_two_queues import *
 
 def main():
 
@@ -11,8 +11,7 @@ def main():
     # testQueueIsEmpty()
     # testDequeue()
     # testQueuePeek()
-    testIsPalindrome()
-
+    testIsPalindrome_queues()
 
     # TestInit()
     # testGettersAndSetters()
@@ -42,15 +41,26 @@ def main():
     # print("((5*2)-(3*(6/2))) = ", calculator.evaluate("((5*2)-(3*(6/2)))"))
 
 
-def testIsPalindrome():
+# def testIsPalindrome():
+#   exp = input("Please enter an expression:")
+#
+#    if(palindrome(exp)):
+#        print("Your expression is a palindrome.")
+#    else:
+#        print("Your expression is not a palindrome.")
+        
+
+def testIsPalindrome_queues():
     exp = input("Please enter an expression:")
 
-    if(palindrome.isPalindrome(exp)):
-        print("Your expression is a palindrome.")
-    else:
-        print("Your expression is not a palindrome.")
 
-
+    while exp != '':
+        exp = input("Please enter an expression:")
+        if(palindrome.isPalindrome(exp)):
+            print("Your expression is a palindrome.")
+        else:
+            print("Your expression is not a palindrome.")
+        
 
 
 def testPeek():
