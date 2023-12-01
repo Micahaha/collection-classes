@@ -12,6 +12,7 @@ def main():
     # testDequeue()
     # testQueuePeek()
     testIsPalindrome_queues()
+    m
 
     # TestInit()
     # testGettersAndSetters()
@@ -48,7 +49,7 @@ def main():
 #        print("Your expression is a palindrome.")
 #    else:
 #        print("Your expression is not a palindrome.")
-        
+    
 
 def testIsPalindrome_queues():
     exp = input("Please enter an expression:")

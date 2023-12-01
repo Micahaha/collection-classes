@@ -60,7 +60,7 @@ class queue :
 
         # return data
         return data
-
+    
     def __str__(self):
         """Returns string representation of the calling queue  
 
